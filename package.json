@@ -22,7 +22,13 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "chromatic": "chromatic --exit-zero-on-changes"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run chromatic"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -58,6 +64,12 @@
     "@storybook/addon-links": "^6.4.9",
     "@storybook/node-logger": "^6.4.9",
     "@storybook/preset-create-react-app": "^3.1.7",
-    "@storybook/react": "^6.4.9"
+    "@storybook/react": "^6.4.9",
+    "husky": "^7.0.4",
+    "msw": "^0.36.8",
+    "msw-storybook-addon": "^1.6.0"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }
